@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "BTNavigationDropdownMenu"
+  s.name         = "TMNavigationDropdownMenu"
   s.version      = "0.4.1"
   s.summary      = "The elegent navigation dropdown menu"
   s.description  = <<-DESC
