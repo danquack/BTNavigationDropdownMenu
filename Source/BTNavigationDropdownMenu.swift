@@ -367,6 +367,15 @@ public class BTNavigationDropdownMenu: UIView {
         }
     }
     
+    public func selectIndexPath( _ index: Int ) {
+        if self.shouldChangeTitleText! {
+            self.setMenuTitle(title: "\(self.tableView.items[index])")
+        }
+        self.layoutSubviews()
+        self.tableView.setSelected(index)
+        self.tableView.reloadData()
+    }
+    
     func setupDefaultConfiguration() {
         self.menuTitleColor = self.navigationController?.navigationBar.titleTextAttributes?[NSAttributedStringKey.foregroundColor] as? UIColor
         self.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
@@ -567,6 +576,10 @@ class BTTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         return nil;
     }
     
+    func setSelected( _ selected: Int ) {
+        self.selectedIndexPath = selected
+    }
+    
     // Table view data source
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -737,4 +750,3 @@ extension UIViewController {
         return self.topPresentedViewController?.topVisibleViewController
     }
 }
-
